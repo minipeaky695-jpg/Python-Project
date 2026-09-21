@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine's Day</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;justify-content:center;align-items:center;background:#fff0f3;font-family:Arial,sans-serif}
+.window{width:400px;height:350px;background:white;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.12);text-align:center;padding:25px;position:relative;overflow:hidden}
+#question{margin:0 0 20px;font-size:22px}
+button{border:0;border-radius:8px;padding:10px 22px;font-size:16px;cursor:pointer}
+#yesBtn{background:#ff4d6d;color:white;font-weight:bold;margin:10px}
+#noBtn{position:absolute;left:150px;top:200px;background:#eee;color:#333}
+#milkImage{display:none;width:150px;max-height:170px;object-fit:contain;margin:10px auto}
+#placeholder{display:none;font-size:14px;font-style:italic;margin:10px}
+#message{display:none;margin-top:20px;font-size:21px;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="window">
+<h2 id="question">Will you be mine &lt;3</h2>
+
+<img id="milkImage" src="milk.png" alt="Milk">
+<div id="placeholder">[ Image: milk.png ]</div>
+
+<button id="yesBtn">Yes! 💕</button>
+<button id="noBtn">No 💔</button>
+
+<div id="message">Yay!!! Best decision ever! 🥰<br>I love youuuu 3000!!</div>
+</div>
+
+<script>
+const question=document.getElementById("question");
+const yesBtn=document.getElementById("yesBtn");
+const noBtn=document.getElementById("noBtn");
+const message=document.getElementById("message");
+const milkImage=document.getElementById("milkImage");
+const placeholder=document.getElementById("placeholder");
+
+noBtn.addEventListener("mouseenter",function(){
+  const x=Math.floor(Math.random()*281)+20;
+  const y=Math.floor(Math.random()*261)+20;
+  noBtn.style.left=x+"px";
+  noBtn.style.top=y+"px";
+});
+
+yesBtn.addEventListener("click",function(){
+  question.style.display="none";
+  yesBtn.style.display="none";
+  noBtn.style.display="none";
+  milkImage.style.display="block";
+  message.style.display="block";
+});
+
+milkImage.addEventListener("error",function(){
+  milkImage.style.display="none";
+  placeholder.style.display="block";
+});
+</script>
+</body>
+</html>
